@@ -1,4 +1,4 @@
-# Ontología de Infraestructura Pública
+# Ontología de Infraestructura Pública (The Public Infrastructure Ontology)
 
 La ontología de Infraestructura Pública representa los datos de las instalaciones (equipamientos) de un municipio. Estos incluyen centros educativos, sociales y culturales, deportivos, así como aparcamientos dentro y fuera de la vía pública y estaciones de bicicletas compartidas.
 
@@ -28,12 +28,12 @@ El repositorio contiene los siguientes directorios:
 | **requirements/** | Contains all documents used to define the ontology’s requirements: data example, competency questions, functional requirements, use cases, etc. |
 | **shapes/** | Contains the SHACL shapes used to define and validate ontology constraints. |
 
-# Project maintenance
+# Mantenimiento y evolución (Maintenance and evolution)
 
-To manage those incidents or suggested improvements with respect to the vocabulary, we recommend you to follow
-the guides provided in [Issues Management](https://github.com/nombre-repositorio/wiki/issues-management) to
-generate an issue (work in progress)
+Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guía proporcionadas en ([Issues Management](https://github.com/infraestructura-publica/wiki/issues-management)) para generar una indicencia (trabajo en progreso).
 
-# Funding
+# Financiación (Funding)
 
-Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes (EDINT).
+Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es)).
+
+<<Completar con información global del proyecto y logos si es necesario>>.
