@@ -36,4 +36,5 @@ Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, r
 
 Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es)).
 
-<<Completar con información global del proyecto y logos si es necesario>>.
+![Logos](EDINT_UE_V-Color.png)
+
