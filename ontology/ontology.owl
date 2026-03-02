@@ -7,7 +7,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura"
      versionIRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura/0.1.0">
-    <Prefix name="" IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#"/>
+    <Prefix name="" IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura"/>
     <Prefix name="gsp" IRI="http://www.opengis.net/ont/geosparql#"/>
     <Prefix name="mod" IRI="https://w3id.org/mod#"/>
     <Prefix name="org" IRI="http://www.w3.org/ns/org#"/>
@@ -300,9 +300,6 @@
         <ObjectProperty abbreviatedIRI="escjr:via"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/equipamiento-municipal/tipoEquipamiento"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#belongsTo"/>
     </Declaration>
     <Declaration>
@@ -312,7 +309,7 @@
         <ObjectProperty IRI="#containsSpot"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasAccess"/>
+        <ObjectProperty IRI="#equipmentType"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasInfractionType"/>
@@ -654,10 +651,6 @@
         <Class abbreviatedIRI="gsp:Feature"/>
     </SubClassOf>
     <SubClassOf>
-        <Class abbreviatedIRI="escjr:Via"/>
-        <Class IRI="#InfrastructureElement"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#AccessPoint"/>
         <Class IRI="#ObservationPoint"/>
     </SubClassOf>
@@ -700,10 +693,6 @@
     <SubClassOf>
         <Class IRI="#ObservationPoint"/>
         <Class abbreviatedIRI="gsp:Feature"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#OffStreetParking"/>
-        <Class IRI="#MunicipalFacility"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#OffStreetParking"/>
@@ -856,10 +845,6 @@
         <Class abbreviatedIRI="escjr:Portal"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/equipamiento-municipal/tipoEquipamiento"/>
-        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/equipamiento-municipal#Equipamiento"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#belongsTo"/>
         <ObjectUnionOf>
             <Class IRI="#InfrastructureElement"/>
@@ -878,8 +863,8 @@
         </ObjectUnionOf>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasAccess"/>
-        <Class IRI="#OffStreetParking"/>
+        <ObjectProperty IRI="#equipmentType"/>
+        <Class IRI="#MobilityGeneratorFacility"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasInfractionType"/>
@@ -1034,16 +1019,6 @@
         <Class abbreviatedIRI="escjr:Via"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/equipamiento-municipal/tipoEquipamiento"/>
-        <ObjectIntersectionOf>
-            <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
-            <ObjectHasValue>
-                <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
-                <NamedIndividual IRI="http://vocab.linkeddata.es/datosabiertos/kos/urbanismo-infraestructuras/equipamiento/tipo-equipamiento"/>
-            </ObjectHasValue>
-        </ObjectIntersectionOf>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#belongsTo"/>
         <ObjectUnionOf>
             <Class abbreviatedIRI="esadm:Autonomia"/>
@@ -1063,8 +1038,14 @@
         <Class IRI="#ParkingSpot"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasAccess"/>
-        <Class IRI="#ParkingAccess"/>
+        <ObjectProperty IRI="#equipmentType"/>
+        <ObjectIntersectionOf>
+            <Class IRI="http://www.w3.org/2004/02/skos/core#Concept"/>
+            <ObjectHasValue>
+                <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#inScheme"/>
+                <NamedIndividual IRI="http://vocab.linkeddata.es/datosabiertos/kos/urbanismo-infraestructuras/equipamiento/tipo-equipamiento"/>
+            </ObjectHasValue>
+        </ObjectIntersectionOf>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasManagementRoleType"/>
@@ -2552,14 +2533,14 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <Literal xml:lang="es">Equipamiento</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/equipamiento-municipal/tipoEquipamiento</IRI>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/equipamiento-municipal</IRI>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AccessPoint</IRI>
+        <Literal xml:lang="es">Es un punto en donde se monitoriza el acceso de vehóculos o personas.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/equipamiento-municipal/tipoEquipamiento</IRI>
-        <Literal xml:lang="es">tipo de equipamiento</Literal>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#AccessPoint</IRI>
+        <Literal xml:lang="en">It is a point where the access of vehicles or people is monitored.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2570,6 +2551,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#AccessPoint</IRI>
         <Literal xml:lang="es">Punto de acceso</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CountingPoint</IRI>
+        <Literal xml:lang="es">Es un punto en donde se realiza un conteo de aforo de vehículos o personas.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CountingPoint</IRI>
+        <Literal xml:lang="en">It is a point where a count of the number of vehicles or people is carried out.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2620,6 +2611,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Infraction</IRI>
         <Literal xml:lang="en">Infraction</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#InfrastructureElement</IRI>
+        <Literal xml:lang="es">Representa el conjunto de todos los elementos de la infraestructura que generan movilidad y elementos urbanos tales como semáforos, señales viales, pilonas, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#InfrastructureElement</IRI>
+        <Literal xml:lang="en">Represents the set of all infrastructure elements that generate mobility and urban elements such as traffic lights, road signs, bollards, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2692,6 +2693,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <Literal xml:lang="es">Rol de gestión</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MobilityGeneratorFacility</IRI>
+        <Literal xml:lang="es">Hace referencia a edificios de servicios (públicos o privados), zonas de ocio, zonas comerciales o cualquier otro elemento  que afecte directamente a la movilidad, actuando como un foco de atracción de vehículos.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#MobilityGeneratorFacility</IRI>
+        <Literal xml:lang="en">It refers to service buildings (public or private), leisure areas, commercial areas or any other element that directly affects mobility, acting as a focus of attraction for vehicles.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MobilityGeneratorFacility</IRI>
         <Literal xml:lang="es">Equipamiento generador de movilidad</Literal>
@@ -2740,6 +2751,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MunicipalService</IRI>
         <Literal xml:lang="es">Servicio municipal</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ObservationPoint</IRI>
+        <Literal xml:lang="en">Points where access or counting observations can be made using sensors.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ObservationPoint</IRI>
+        <Literal xml:lang="es">Puntos en donde se pueden realizar observaciones de acceso o de conteo a través de sensores.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2794,12 +2815,12 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Organization</IRI>
-        <Literal xml:lang="en">Department of the municipal administration or external organization that manages municipal instalaltionin any role, such as ownership, maintenance, security.</Literal>
+        <Literal xml:lang="en">Any public or private organization that owns or manages an element of the infrastructure.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Organization</IRI>
-        <Literal xml:lang="es">Dependencia de la administración municipal u organización externa que gestiona el equipamiento municipal  en cualquier rol, tales como la titularidad, el mantenimiento, la seguridad.</Literal>
+        <Literal xml:lang="es">Cualquier organización pública o privada que sea titular o gestione un elemento de la infraestructura.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -2932,6 +2953,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <Literal xml:lang="es">Grupo de plazas por tipo de vehículo</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UrbanElement</IRI>
+        <Literal xml:lang="es">Comprende el inventario de elementos urbanos tales como señales viales, semáforos, pilonas, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#UrbanElement</IRI>
+        <Literal xml:lang="en">It includes the inventory of urban elements such as road signs, traffic lights, bollards, etc.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#UrbanElement</IRI>
         <Literal xml:lang="es">Elemento urbano</Literal>
@@ -3013,23 +3044,33 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasAccess</IRI>
-        <Literal xml:lang="es">Relación entre un aparcamiento fuera d ela vía pública y el acceso de entrada o salida.</Literal>
+        <IRI>#equipmentType</IRI>
+        <Literal xml:lang="es">Relación entre un elemento que es generador de movilidad y algún concepto de la taxonomía de tipos de equipamiento tales como centro educativo, centro de salud, centro cultural, aparcamiento, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#hasAccess</IRI>
-        <Literal xml:lang="en">Relationship between an off-street parking lot and the entrance or exit access.</Literal>
+        <IRI>#equipmentType</IRI>
+        <Literal xml:lang="en">Relationship between an element that generates mobility and some concept from the taxonomy of types of facilities such as educational center, health center, cultural center, parking, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasAccess</IRI>
-        <Literal xml:lang="en">has access</Literal>
+        <IRI>#equipmentType</IRI>
+        <Literal xml:lang="en">equipment type</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#hasAccess</IRI>
-        <Literal xml:lang="es">tiene acceso</Literal>
+        <IRI>#equipmentType</IRI>
+        <Literal xml:lang="es">tipo de equipamiento</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasInfractionType</IRI>
+        <Literal xml:lang="es">Relaciona a una Infracción con un concepto de la taxonomía de tipos de infracción.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasInfractionType</IRI>
+        <Literal xml:lang="en">Relate an Infraction to a concept from the taxonomy of infraction types.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3040,6 +3081,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasInfractionType</IRI>
         <Literal xml:lang="es">tiene tipo de infracción</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasInfrastructureSensorType</IRI>
+        <Literal xml:lang="es">Relaciona a  un sensor de la infraestructura con un concepto de la taxonomía de tipos de sensores.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasInfrastructureSensorType</IRI>
+        <Literal xml:lang="en">Relate an Infraction to a concept from the taxonomy of infraction types.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3070,6 +3121,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasManagementRoleType</IRI>
         <Literal xml:lang="es">tiene tipo de rol de gestión</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasObservationPoint</IRI>
+        <Literal xml:lang="es">Relación entre un elemento de la infraestructura y un punto de observación por algún sensor.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasObservationPoint</IRI>
+        <Literal xml:lang="en">Relationship between an infrastructure element and an observation point by some sensor.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3122,6 +3183,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <Literal xml:lang="es">tiene tipo de permiso para grupo de plazas</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSensor</IRI>
+        <Literal xml:lang="es">Relación ente el punto de observación y el sensor que realiza la observación.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasSensor</IRI>
+        <Literal xml:lang="en">Relationship between the observation point and the sensor that performs the observation.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasSensor</IRI>
         <Literal xml:lang="en">has sensor</Literal>
@@ -3170,6 +3241,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#hasSpotsByVehicleType</IRI>
         <Literal xml:lang="es">tiene grupo de plazas por tipo de vehiculo</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasUrbanElementType</IRI>
+        <Literal xml:lang="es">Relación entre el elemento urbano y un concepto de la taxonomía de tipos de elemento urbano.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#hasUrbanElementType</IRI>
+        <Literal xml:lang="en">Relationship between the urban element and a concept from the taxonomy of urban element types.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3230,6 +3311,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#isPartOfZone</IRI>
         <Literal xml:lang="en">is part of zone</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#linkedTo</IRI>
+        <Literal xml:lang="es">Relación entee una infracción y el vehículo que cometió la infracción.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#linkedTo</IRI>
+        <Literal xml:lang="en">Relationship between an infraction and the vehicle that committed the infraction.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -3300,6 +3391,16 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#offersRegularActivity</IRI>
         <Literal xml:lang="es">ofrece actividad regular</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ownership</IRI>
+        <Literal xml:lang="en">Relación entre un generador de movilidad y su titularidad, es decir si es privado, público o alguna otra clasificación.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ownership</IRI>
+        <Literal xml:lang="en">Relationship between an element that generates mobility and its ownership, that is, whether it is private, public or some other classification.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -4033,17 +4134,12 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>https://schema.org/Organization</IRI>
-        <Literal xml:lang="es">Institución, empresa u organización privada o pública. Incluye autónomos.</Literal>
+        <Literal xml:lang="en">An organization such as a school, NGO, corporation, club, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>https://schema.org/Organization</IRI>
-        <Literal xml:lang="en">Institution, company or private or public organization. Includes self-employed individuals.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <IRI>https://schema.org/Organization</IRI>
-        <IRI>http://www.w3.org/ns/org</IRI>
+        <Literal xml:lang="es">Una organización como una escuela, una ONG, una corporación, un club, etc.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
