@@ -135,6 +135,9 @@
         <Class abbreviatedIRI="edintveh:Vehicle"/>
     </Declaration>
     <Declaration>
+        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking"/>
+    </Declaration>
+    <Declaration>
         <Class abbreviatedIRI="escjr:Portal"/>
     </Declaration>
     <Declaration>
@@ -169,9 +172,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Organization"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Parking"/>
     </Declaration>
     <Declaration>
         <Class IRI="#UrbanElement"/>
@@ -571,6 +571,10 @@
         <Class abbreviatedIRI="gsp:Feature"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking"/>
+        <Class IRI="#Facility"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class abbreviatedIRI="escjr:Via"/>
         <Class IRI="http://www.geonames.org/ontology#Feature"/>
     </SubClassOf>
@@ -619,10 +623,6 @@
     <SubClassOf>
         <Class IRI="#Organization"/>
         <Class IRI="https://schema.org/Organization"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Parking"/>
-        <Class IRI="#Facility"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#UrbanElement"/>
@@ -2248,6 +2248,26 @@ Su nombre, que se especifica con la propiedad dct:title, es el proporcionado por
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking</IRI>
+        <Literal xml:lang="es">Aparcamiento para diferentes tipos de vehículo que incluye instalaciones o superficies de aparcamiento fuera de la vía pública o zonas de aparcamiento en la vía pública para residentes, no residentes o libres.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking</IRI>
+        <Literal xml:lang="en">Parking for different types of vehicles, including off-street parking facilities or on-street parking zones for residents, non-residents, or free parking.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking</IRI>
+        <Literal xml:lang="es">Aparcamiento</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/aparcamiento#Parking</IRI>
+        <Literal xml:lang="en">Parking</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <AbbreviatedIRI>escjr:Portal</AbbreviatedIRI>
         <Literal xml:lang="es">Subacceso independiente exterior (al aire libre) a una misma construcción. Para una misma construcción, con un mismo número de vía, pueden existir varias entradas que pueden estar numeradas con números o letras. [fuente: Modelo de Direcciones de la Administración General del Estado v.2]</Literal>
     </AnnotationAssertion>
@@ -2419,22 +2439,22 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Facility</IRI>
-        <Literal xml:lang="es">Hace referencia a edificios de servicios (públicos o privados), zonas de ocio, zonas comerciales o cualquier otro elemento  que afecte directamente a la movilidad, actuando como un foco de atracción de vehículos.</Literal>
+        <Literal xml:lang="es">Hace referencia a edificios de servicios (públicos o privados), zonas de ocio, zonas comerciales o cualquier otro elemento  que afecte directamente a la movilidad, actuando como un foco de atracción de personas o vehículos.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Facility</IRI>
-        <Literal xml:lang="en">It refers to service buildings (public or private), leisure areas, commercial areas or any other element that directly affects mobility, acting as a focus of attraction for vehicles.</Literal>
+        <Literal xml:lang="en">It refers to service buildings (public or private), leisure areas, commercial areas or any other element that directly affects mobility, acting as a focus of attraction for persons or vehicles.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Facility</IRI>
-        <Literal xml:lang="es">Equipamiento generador de movilidad</Literal>
+        <Literal xml:lang="es">Equipamiento</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Facility</IRI>
-        <Literal xml:lang="en">Mobility generator facility</Literal>
+        <Literal xml:lang="en">Facility</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -2515,26 +2535,6 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Organization</IRI>
         <Literal xml:lang="en">Organization</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Parking</IRI>
-        <Literal xml:lang="es">Aparcamiento para diferentes tipos de vehículo que incluye instalaciones o superficies de aparcamiento fuera de la vía pública o zonas de aparcamiento en la vía pública para residentes, no residentes o libres.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Parking</IRI>
-        <Literal xml:lang="en">Parking for different types of vehicles, including off-street parking facilities or on-street parking zones for residents, non-residents, or free parking.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Parking</IRI>
-        <Literal xml:lang="es">Aparcamiento</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Parking</IRI>
-        <Literal xml:lang="en">Parking</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -2909,7 +2909,7 @@ Además de las propiedades asociadas a estas clases, y definidas en su correspon
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#registeredOwner</IRI>
-        <Literal xml:lang="es">tiene titular</Literal>
+        <Literal xml:lang="es">tiene titular registrado</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
