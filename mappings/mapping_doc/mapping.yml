@@ -1,0 +1,70 @@
+prefixes:
+  esdir: http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/direccion-postal#
+  edintinf: http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#
+  edintpublicservice: http://vocab.linkeddata.es/datosabiertos/kos/edint/PublicService/
+  edintregularact: http://vocab.linkeddata.es/datosabiertos/kos/edint/RegularActivity/
+  schema: http://www.owl-ontologies.com/schema#
+  edintmanagementrole: http://vocab.linkeddata.es/datosabiertos/kos/edint/ManagementRoleType/
+  edintkos: http://vocab.linkeddata.es/datosabiertos/kos/urbanismo-infraestructuras/infraestructura/tipo-infraestructura/
+  dct: http://purl.org/dc/terms/
+  geosparql: http://www.opengis.net/ont/geosparql#
+
+sources:
+  facility-source: ['Madrid_atencion_social.csv~csv']
+  equipamiento-municipal-source: ['Madrid_atencion_social.csv~csv']
+  observation-point-source: ['Madrid_atencion_social.csv~csv']
+  postal-address-source: ['Madrid_atencion_social.csv~csv']
+  rolDeGestion-source: ['Madrid_atencion_social.csv~csv']
+
+mappings:
+  facility:
+    sources:
+      - facility-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/$(pk) #equipamiento_municipal
+    po:
+      - [a, edintinf:Facility]
+      - [dct:identifier,"$(pk)"]
+      - [rdfs:label, "$(nombre)"]
+      - [rdfs:comment, $(descripcion_entidad)]
+      - [geosparql:hasGeometry, "http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/locations/$(pk)~iri"]
+      - [edintinf:belongsTo, "http://vocab.linkeddata.es/datosabiertos/recurso/sector-publico/territorio/barrio/$(barrio)~iri"] # Otros e.g territorio/Comarca/D.C._Zaragoza, sector-publico/territorio/Provincia/Zaragoza
+      - [edintinf:hasObservationPoint, "http://vocab.linkeddata.es/datosabiertos/recurso/punto-de-observacion/$(punto_observ_id)~iri"] # Check FEMP-observationPoint.yml
+      - [edintinf:hasInfrastructureType, "edintkos:$(tipo)~iri"] # SKOS tipo_infraestructura
+      - [edintinf:hasRegisteredOwner, "http://vocab.linkeddata.es/datosabiertos/recurso/organizacion/$(pk)~iri"] # Organizacion
+      - [schema:address, "http://vocab.linkeddata.es/datosabiertos/recurso/direccion-postal/$(codigo_postal)~iri"] # Check FEMP-postalAddress.yml
+      - [schema:openingHours,$(horario)]
+      - [edintinf:providesPublicService,"edintpublicservice:$(servicio)~iri"] # SKOS: complementaryservice, wifi, phonesupport, cafeteria , etc.
+      - [edintinf:offersRegularActivity,"edintregularact:$(actividad_regular)~iri"] #SKOS: culturalcenteract, exhibition, concert, theatre, workshop.
+      - [edintinf:containsFacility,"http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/$(parent_equipamiento_municipal_id)~iri" ]
+
+  locations:
+    sources:
+      - facility-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/locations/$(pk)
+    po:
+      - [a, geosparql:Geometry]
+      - [dct:identifier,"$(pk)"]
+      - [geosparql:asWKT, "POINT ($(longitud) $(latitud))", geosparql:wktLiteral]
+
+  observationPoint:
+    sources:
+      - observation-point-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/punto-de-observacion/$(punto_observ_id)
+    po:
+      - [a, edintinf:ObservationPoint]
+  postalAddress:
+    sources:
+      - postal-address-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/direccion-postal/$(codigo_postal)
+    po:
+      - [a, esdir:DireccionPostal] # Reutilizado de Callejero
+
+  rolDeGestion:
+    sources:
+      - rolDeGestion-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/rol-de-gestion/$(rol) #
+    po:
+      - [a, edintinf:ManagementRole]
+      - [edintinf:rolePlayedBy, "http://vocab.linkeddata.es/datosabiertos/recurso/organizacion/$(company)~iri"] # Esto va a Organizacion
+      - [edintinf:hasRoleType, "edintmanagementrole:$(rol)~iri"] # SKOS: basicservices, facilitysecurity, humanresources, maintenance
+      - [edintinf:madeOnInfrastructure, "http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/$(equipamiento_municipal)~iri"] # Esto va a equipamientoMunicipal
