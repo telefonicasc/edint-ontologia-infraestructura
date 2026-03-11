@@ -1,0 +1,29 @@
+prefixes:
+  esdir: http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/direccion-postal#
+  edintinf: http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/infraestructura#
+  edintpublicservice: http://vocab.linkeddata.es/datosabiertos/kos/edint/PublicService/
+  edintregularact: http://vocab.linkeddata.es/datosabiertos/kos/edint/RegularActivity/
+  schema: http://www.owl-ontologies.com/schema#
+
+sources:
+  facility-source: ['Madrid_con_punto_observ_id.csv~csv']
+
+mappings:
+  postalAddress:
+    sources:
+      - facility-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/$(pk) #equipamiento_municipal
+    po:
+      - [a, edintinf:Facility]
+      - [schema:openingHours,$(horario)]
+      - [edintinf:providesPublicService,"edintpublicservice:$(servicio)~iri"] # SKOS: complementaryservice, wifi, phonesupport, cafeteria , etc.
+      - [edintinf:offersRegularActivity,"edintregularact:$(actividad_regular)~iri"] #SKOS: culturalcenteract, exhibition, concert, theatre, workshop.
+      - [edintinf:containsFacility,"http://vocab.linkeddata.es/datosabiertos/recurso/equipamiento-municipal/$(parent_equipamiento_municipal_id)~iri" ]
+#      - p: edintinfp:containsFacility   # Join
+#        o:
+#          - mapping: equipamiento-municipal
+#            condition:
+#              function: equal
+#              parameters:
+#                - [str1, $(parent_equipamiento_municipal_id)]
+#                - [str2, $(pk)]
