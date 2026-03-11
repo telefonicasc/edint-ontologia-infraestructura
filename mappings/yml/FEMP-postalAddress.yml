@@ -1,0 +1,13 @@
+prefixes:
+  esdir: http://vocab.linkeddata.es/datosabiertos/def/urbanismo-infraestructuras/direccion-postal#
+
+sources:
+  postal-address-source: ['Madrid_con_punto_observ_id.csv~csv']
+
+mappings:
+  postalAddress:
+    sources:
+      - postal-address-source
+    s: http://vocab.linkeddata.es/datosabiertos/recurso/direccion-postal/$(codigo_postal)
+    po:
+      - [a, esdir:DireccionPostal] # Reutilizado de Callejero
